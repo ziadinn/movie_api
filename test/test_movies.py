@@ -32,3 +32,8 @@ def test_sort_filter():
         encoding="utf-8",
     ) as f:
         assert response.json() == json.load(f)
+
+
+def test_404():
+    response = client.get("/movies/1")
+    assert response.status_code == 404

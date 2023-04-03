@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
+from src import database as db
 
 router = APIRouter()
 
@@ -25,6 +26,10 @@ def get_character(id: str):
     * `number_of_lines_together`: The number of lines the character has with the
       originally queried character.
     """
+    for character in db.characters:
+        if character["character_id"] == id:
+            print("character found")
+
     json = None
 
     if json is None:

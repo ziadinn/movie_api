@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
+from src import database as db
 
 router = APIRouter()
 
@@ -21,6 +22,11 @@ def get_movie(movie_id: str):
     * `num_lines`: The number of lines the character has in the movie.
 
     """
+
+    for movie in db.movies:
+        if movie["movie_id"] == id:
+            print("movie found")
+
     json = None
 
     if json is None:

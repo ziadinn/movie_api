@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+# TODO: Remove lists!
 @dataclass
 class Character:
 	id:       int
@@ -18,6 +18,7 @@ class Movie:
 	imdb_rating: float
 	imdb_votes: int
 	raw_script_url: str
+	characters: list
 	conversations: list
 	lines: list
 

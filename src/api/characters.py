@@ -1,9 +1,19 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
 from src import database as db
+import json
 
 router = APIRouter()
 
+def get_top_conversations(character):
+  return None
+  # def conversation(c_id, m_id):
+  #   for convo in db.conversations:
+  #     if convo["movie_id"] == m_id and (convo["character1_id"] == c_id or convo["character2_id"] == c_id):
+  #       yield convo
+  
+  
+    
 
 @router.get("/characters/{id}", tags=["characters"])
 def get_character(id: str):
@@ -26,16 +36,38 @@ def get_character(id: str):
     * `number_of_lines_together`: The number of lines the character has with the
       originally queried character.
     """
-    for character in db.characters:
-        if character["character_id"] == id:
-            print("character found")
+    
+    character = db.idsearch(db.characters, id)
 
-    json = None
+    if character:
+      # print("character found")
+      movie = db.idsearch(db.movies, character.movie_id)
+      result = {
+          "character_id" : character.id,
+          "character" : character.name,
+          "movie" : movie.title,
+          "gender" : character.gender,
+          "top_conversations" : get_top_conversations(character)
+        }
+      return result
 
-    if json is None:
-        raise HTTPException(status_code=404, detail="movie not found.")
+    # for character in db.characters:
+    #     if character["character_id"] == id:
+    #         print("character found")
+    #         json_str = character # json.dumps(character)
 
-    return json
+    #         movie = next((m for m in db.movies if character["movie_id"] == m["movie_id"]))
+    
+    #         result = {
+    #           "character_id" : int(character["character_id"]),
+    #           "character" : character["name"],
+    #           "movie" : movie["title"],
+    #           "gender" : character["gender"],
+    #           "top_conversations" : get_top_conversations(character, movie)
+    #         }
+    #         return result
+
+    raise HTTPException(status_code=404, detail="movie not found.")
 
 
 class character_sort_options(str, Enum):
@@ -73,5 +105,7 @@ def list_characters(
     number of results to skip before returning results.
     """
 
-    json = None
-    return json
+    chars = filter(lambda c: name in c.name, db.characters)
+
+    json_str = db.characters # json.dumps(db.characters)
+    return json_str

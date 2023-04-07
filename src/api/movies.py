@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
 from src import database as db
+from src.datatypes import Character, Movie, Conversation, Line
 
 router = APIRouter()
 
@@ -22,12 +23,13 @@ def get_movie(movie_id: str):
     * `num_lines`: The number of lines the character has in the movie.
 
     """
+    
+    json = None
 
     for movie in db.movies:
         if movie["movie_id"] == id:
             print("movie found")
-
-    json = None
+            json = movie
 
     if json is None:
         raise HTTPException(status_code=404, detail="movie not found.")
@@ -71,6 +73,26 @@ def list_movies(
     maximum number of results to return. The `offset` query parameter specifies the
     number of results to skip before returning results.
     """
-    json = None
+
+    items = list(filter(lambda m: name in m.title, db.movies.values()))
+    if sort == movie_sort_options.movie_title:
+        sort_fn = lambda m: m.title
+    elif sort == movie_sort_options.year:
+        sort_fn = lambda m: m.year
+    elif sort == movie_sort_options.rating:
+        sort_fn = lambda m: m.imdb_rating
+    else:
+        sort_fn = lambda m: 0
+    items.sort(key=sort_fn)
+    json = (
+        {
+            "movie_id" : m.id,
+            "movie_title" : m.title,
+            "year" : m.year,
+            "imdb_rating" : m.imdb_rating,
+            "imdb_votes" : m.imdb_votes
+        }
+        for m in items[offset:offset+limit]
+    )
 
     return json

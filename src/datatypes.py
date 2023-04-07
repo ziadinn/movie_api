@@ -7,8 +7,9 @@ class Character:
 	movie_id: int
 	gender:   str
 	age:      int
-	conversations: list
-	lines: list
+	#conversations: list
+	#lines: list
+	num_lines: int
 
 @dataclass
 class Movie:
@@ -18,9 +19,9 @@ class Movie:
 	imdb_rating: float
 	imdb_votes: int
 	raw_script_url: str
-	characters: list
-	conversations: list
-	lines: list
+	#characters: list
+	#conversations: list
+	#lines: list
 
 @dataclass
 class Conversation:
@@ -29,7 +30,7 @@ class Conversation:
 	c2_id: int
 	movie_id: int
 	num_lines: int
-	lines: list
+	#lines: list
 
 @dataclass
 class Line:

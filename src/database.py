@@ -41,9 +41,9 @@ with open("movies.csv", mode="r", encoding="utf8") as csv_file:
             try_parse(float, row["imdb_rating"]),
             try_parse(int, row["imdb_votes"]),
             row["raw_script_url"] or None,
-            [],
-            [],
-            [] # filled in later
+            #[],
+            #[],
+            #[] # filled in later
         )
         for row in csv.DictReader(csv_file, skipinitialspace=True)
     }
@@ -57,14 +57,15 @@ with open("characters.csv", mode="r", encoding="utf8") as csv_file:
             try_parse(int, row["movie_id"]),
             row["gender"] or None,
             try_parse(int, row["age"]),
-            [],
-            []
+            #[],
+            #[],
+            0
         )
         characters[char.id] = char
-        if char.movie_id:
-            m = movies.get(char.movie_id)
-            if m:
-                m.characters.append(char.id)
+        # if char.movie_id:
+        #     m = movies.get(char.movie_id)
+        #     if m:
+        #         m.characters.append(char.id)
 
 with open("conversations.csv", mode="r", encoding="utf8") as csv_file:
     conversations = {}
@@ -75,16 +76,16 @@ with open("conversations.csv", mode="r", encoding="utf8") as csv_file:
             try_parse(int, row["character2_id"]),
             try_parse(int, row["movie_id"]),
             0,
-            []
+            #[]
         )
         conversations[conv.id] = conv
-        for c_id in [conv.c1_id, conv.c2_id]:
-            c = idsearch(characters, c_id)
-            if c:
-                c.conversations.append(conv.id)
-        m = idsearch(movies, conv.movie_id)
-        if m:
-            m.conversations.append(conv.id)
+        # for c_id in [conv.c1_id, conv.c2_id]:
+        #     c = idsearch(characters, c_id)
+        #     if c:
+        #         c.conversations.append(conv.id)
+        # m = idsearch(movies, conv.movie_id)
+        # if m:
+        #     m.conversations.append(conv.id)
 
 with open("lines.csv", mode="r", encoding="utf8") as csv_file:
     lines = {}
@@ -100,15 +101,16 @@ with open("lines.csv", mode="r", encoding="utf8") as csv_file:
         lines[line.id] = line
         c = idsearch(characters, line.c_id)
         if c:
-            c.lines.append(line.id)
+            #c.lines.append(line.id)
+            c.num_lines += 1
 
-        m = idsearch(movies, line.movie_id)
-        if m:
-            m.lines.append(line.id)
+        # m = idsearch(movies, line.movie_id)
+        # if m:
+        #     m.lines.append(line.id)
         
         conv = idsearch(conversations, line.conv_id)
         if conv:
-            conv.lines.append(line.id)
+            #conv.lines.append(line.id)
             conv.num_lines += 1
 
 

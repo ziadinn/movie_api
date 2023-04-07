@@ -49,7 +49,7 @@ def get_movie(movie_id: str):
                 {
                     "character_id" : c.id,
                     "character" : c.name,
-                    "num_lines" : sum(1 for line in db.lines.values() if line.movie_id == movie_id and line.c_id == c.id)
+                    "num_lines" : c.num_lines #sum(1 for line in db.lines.values() if line.movie_id == movie_id and line.c_id == c.id)
                 }
                 for c in db.characters.values() if c.movie_id == movie_id
                 #for c in map(lambda c_id: db.characters.get(c_id), movie.characters) if c

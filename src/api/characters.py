@@ -51,39 +51,23 @@ def get_character(id: str):
         # print("character found")
         movie = db.movies.get(character.movie_id)
         result = {
-                "character_id" : character.id,
-                "character" : character.name,
-                "movie" : movie and movie.title,
-                "gender" : character.gender,
-                "top_conversations" : (
-                    {
-                        "character_id" : other_id,
-                        "character" : db.characters[other_id].name,
-                        "gender" : db.characters[other_id].gender,
-                        "number_of_lines_together" : lines
-                    }
-                    for other_id, lines in get_top_conv_characters(character)
-                )
-            }
+            "character_id" : character.id,
+            "character" : character.name,
+            "movie" : movie and movie.title,
+            "gender" : character.gender,
+            "top_conversations" : (
+                {
+                    "character_id" : other_id,
+                    "character" : db.characters[other_id].name,
+                    "gender" : db.characters[other_id].gender,
+                    "number_of_lines_together" : lines
+                }
+                for other_id, lines in get_top_conv_characters(character)
+            )
+        }
         return result
 
-    # for character in db.characters:
-    #     if character["character_id"] == id:
-    #         print("character found")
-    #         json_str = character # json.dumps(character)
-
-    #         movie = next((m for m in db.movies if character["movie_id"] == m["movie_id"]))
-    
-    #         result = {
-    #           "character_id" : int(character["character_id"]),
-    #           "character" : character["name"],
-    #           "movie" : movie["title"],
-    #           "gender" : character["gender"],
-    #           "top_conversations" : get_top_conversations(character, movie)
-    #         }
-    #         return result
-
-    raise HTTPException(status_code=404, detail="movie not found.")
+    raise HTTPException(status_code=404, detail="character not found.")
 
 
 class character_sort_options(str, Enum):
@@ -121,9 +105,8 @@ def list_characters(
     number of results to skip before returning results.
     """
 
-    #chars = filter(lambda c: name in c.name, db.characters)
     if name:
-        filter_fn = lambda c: c.name and (name in c.name)
+        filter_fn = lambda c: c.name and (name.upper() in c.name)
     else:
         filter_fn = lambda _: True
 
@@ -146,5 +129,4 @@ def list_characters(
         }
         for c in items[offset:offset+limit]
     )
-    #json_str = db.characters # json.dumps(db.characters)
     return json

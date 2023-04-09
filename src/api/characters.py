@@ -1,6 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
 from collections import Counter
+
+from fastapi.params import Query
 from src import database as db
 import json
 
@@ -22,7 +24,7 @@ def get_top_conv_characters(character):
     return line_counts.most_common()
     
 @router.get("/characters/{id}", tags=["characters"])
-def get_character(id: str):
+def get_character(id: int):
     """
     This endpoint returns a single character by its identifier. For each character
     it returns:
@@ -42,10 +44,11 @@ def get_character(id: str):
     * `number_of_lines_together`: The number of lines the character has with the
       originally queried character.
     """
-    character = None
-    if id.isnumeric():
-        id = int(id)
-        character = db.characters.get(id)
+    # character = None
+    # if id.isnumeric():
+    #     id = int(id)
+    #     character = db.characters.get(id)
+    character = db.characters.get(id)
 
     if character:
         # print("character found")
@@ -79,8 +82,8 @@ class character_sort_options(str, Enum):
 @router.get("/characters/", tags=["characters"])
 def list_characters(
     name: str = "",
-    limit: int = 50,
-    offset: int = 0,
+    limit: int = Query(50, ge=1, le=250),
+    offset: int = Query(0, ge=0),
     sort: character_sort_options = character_sort_options.character,
 ):
     """

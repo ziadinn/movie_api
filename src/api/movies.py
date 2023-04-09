@@ -2,13 +2,14 @@ from fastapi import APIRouter, HTTPException
 from enum import Enum
 from src import database as db
 from src.datatypes import Character, Movie, Conversation, Line
+from fastapi.params import Query
 
 router = APIRouter()
 
 
 # include top 3 actors by number of lines
 @router.get("/movies/{movie_id}", tags=["movies"])
-def get_movie(movie_id: str):
+def get_movie(movie_id: int):
     """
     This endpoint returns a single movie by its identifier. For each movie it returns:
     * `movie_id`: the internal id of the movie.
@@ -23,26 +24,27 @@ def get_movie(movie_id: str):
     * `num_lines`: The number of lines the character has in the movie.
 
     """
-    if movie_id.isnumeric():
-        movie_id = int(movie_id)
-        movie = db.movies.get(movie_id)
-        if movie:
-            top_chars = [
-                {
-                    "character_id" : c.id,
-                    "character" : c.name,
-                    "num_lines" : c.num_lines
-                }
-                for c in db.characters.values() if c.movie_id == movie_id
-            ]
-            top_chars.sort(key=lambda c: c["num_lines"], reverse=True)
-
-            result = {
-                "movie_id" : movie_id,
-                "title" : movie.title,
-                "top_characters" : top_chars[0:5]
+    # if movie_id.isnumeric():
+    #     movie_id = int(movie_id)
+    
+    movie = db.movies.get(movie_id)
+    if movie:
+        top_chars = [
+            {
+                "character_id" : c.id,
+                "character" : c.name,
+                "num_lines" : c.num_lines
             }
-            return result
+            for c in db.characters.values() if c.movie_id == movie_id
+        ]
+        top_chars.sort(key=lambda c: c["num_lines"], reverse=True)
+
+        result = {
+            "movie_id" : movie_id,
+            "title" : movie.title,
+            "top_characters" : top_chars[0:5]
+        }
+        return result
 
     raise HTTPException(status_code=404, detail="movie not found.")
 
@@ -57,8 +59,8 @@ class movie_sort_options(str, Enum):
 @router.get("/movies/", tags=["movies"])
 def list_movies(
     name: str = "",
-    limit: int = 50,
-    offset: int = 0,
+    limit: int = Query(50, ge=1, le=250),
+    offset: int = Query(0, ge=0),
     sort: movie_sort_options = movie_sort_options.movie_title,
 ):
     """

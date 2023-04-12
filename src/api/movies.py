@@ -1,13 +1,11 @@
 from fastapi import APIRouter, HTTPException
 from enum import Enum
 from src import database as db
-from src.datatypes import Character, Movie, Conversation, Line
 from fastapi.params import Query
 
 router = APIRouter()
 
 
-# include top 3 actors by number of lines
 @router.get("/movies/{movie_id}", tags=["movies"])
 def get_movie(movie_id: int):
     """
@@ -24,25 +22,20 @@ def get_movie(movie_id: int):
     * `num_lines`: The number of lines the character has in the movie.
 
     """
-    # if movie_id.isnumeric():
-    #     movie_id = int(movie_id)
-    
+
     movie = db.movies.get(movie_id)
     if movie:
         top_chars = [
-            {
-                "character_id" : c.id,
-                "character" : c.name,
-                "num_lines" : c.num_lines
-            }
-            for c in db.characters.values() if c.movie_id == movie_id
+            {"character_id": c.id, "character": c.name, "num_lines": c.num_lines}
+            for c in db.characters.values()
+            if c.movie_id == movie_id
         ]
         top_chars.sort(key=lambda c: c["num_lines"], reverse=True)
 
         result = {
-            "movie_id" : movie_id,
-            "title" : movie.title,
-            "top_characters" : top_chars[0:5]
+            "movie_id": movie_id,
+            "title": movie.title,
+            "top_characters": top_chars[0:5],
         }
         return result
 
@@ -86,9 +79,15 @@ def list_movies(
     number of results to skip before returning results.
     """
     if name:
-        filter_fn = lambda m: m.title and (name.lower() in m.title)
+
+        def filter_fn(m):
+            return m.title and name.lower() in m.title
+
     else:
-        filter_fn = lambda _: True
+
+        def filter_fn(_):
+            return True
+
     items = list(filter(filter_fn, db.movies.values()))
     if sort == movie_sort_options.movie_title:
         items.sort(key=lambda m: m.title)
@@ -99,13 +98,13 @@ def list_movies(
 
     json = (
         {
-            "movie_id" : m.id,
-            "movie_title" : m.title,
-            "year" : m.year,
-            "imdb_rating" : m.imdb_rating,
-            "imdb_votes" : m.imdb_votes
+            "movie_id": m.id,
+            "movie_title": m.title,
+            "year": m.year,
+            "imdb_rating": m.imdb_rating,
+            "imdb_votes": m.imdb_votes,
         }
-        for m in items[offset:offset+limit]
+        for m in items[offset : offset + limit]
     )
 
     return json

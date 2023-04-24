@@ -14,12 +14,14 @@ def test_get_line_by_id():
     with open("test/lines/9999.json", encoding="utf-8") as f:
         assert response.json() == json.load(f)
 
+
 def test_get_bad_line():
     response = client.get("/lines/99990")
     assert response.status_code == 404
 
     with open("test/lines/error.json", encoding="utf-8") as f:
         assert response.json() == json.load(f)
+
 
 def test_lines():
     response = client.get("/lines/")
@@ -36,9 +38,68 @@ def test_lines_by_name():
     with open("test/lines/bianca.json", encoding="utf-8") as f:
         assert response.json() == json.load(f)
 
+
 def test_conversations():
     response = client.get("/conversations/")
     assert response.status_code == 200
 
     with open("test/lines/conversations.json", encoding="utf-8") as f:
         assert response.json() == json.load(f)
+
+
+def test_basic_post():
+    data = {
+        "character_1_id": 0,
+        "character_2_id": 1,
+        "lines": [{"character_id": 0, "line_text": "testing"}],
+    }
+
+    prePostLines = client.get("/lines/666223")
+    prePostConversations = client.get("conversations/83074")
+    with open("test/lines/error.json", encoding="utf-8") as f:
+        assert prePostLines.json() == json.load(f)
+    with open("test/conversations/error.json", encoding="utf-8") as f:
+        assert prePostConversations.json() == json.load(f)
+
+    basicPostResponse = client.post("/movies/0/conversations/", json=data)
+    with open("test/lines/basicPostResponse.json", encoding="utf-8") as f:
+        assert basicPostResponse.json() == json.load(f)
+
+    postPostLines = client.get("/lines/666223")
+    postPostConversations = client.get("conversations/83074")
+
+    with open("test/lines/basic_666223_after.json", encoding="utf-8") as f:
+        assert postPostLines.json() == json.load(f)
+    with open("test/conversations/basic_83074_after.json", encoding="utf-8") as f:
+        assert postPostConversations.json() == json.load(f)
+
+
+def test_more_post():
+    data = {
+        "character_1_id": 9021,
+        "character_2_id": 9024,
+        "lines": [
+            {"character_id": 9021, "line_text": "Hi, I am talking to you"},
+            {"character_id": 9024, "line_text": "Yes, you are talking right now"},
+            {"character_id": 9021, "line_text": "This should be my second custom line"},
+            {"character_id": 9024, "line_text": "And this is my last"},
+        ],
+    }
+
+    preMaitreLines = client.get("/lines/?character=MAITRE D'")
+    preOldVioLines = client.get("/lines/?character=OLD VIOLINIST")
+    with open("test/lines/maitre_pre.json", encoding="utf-8") as f:
+        assert preMaitreLines.json() == json.load(f)
+    with open("test/lines/oldViolinist_pre.json", encoding="utf-8") as f:
+        assert preOldVioLines.json() == json.load(f)
+
+    basicPostResponse = client.post("/movies/615/conversations/", json=data)
+    with open("test/lines/morePostResponse.json", encoding="utf-8") as f:
+        assert basicPostResponse.json() == json.load(f)
+
+    postMaitreLines = client.get("/lines/?character=MAITRE D'")
+    postOldVioLines = client.get("/lines/?character=OLD VIOLINIST")
+    with open("test/lines/maitre_post.json", encoding="utf-8") as f:
+        assert postMaitreLines.json() == json.load(f)
+    with open("test/lines/oldViolinist_post.json", encoding="utf-8") as f:
+        assert postOldVioLines.json() == json.load(f)

@@ -1,0 +1,194 @@
+[
+    {
+        "line_id": 36741,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "Dorsia.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 36854,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "Your friend has already been seated. Follow me Mr. Halberstam.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 37198,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "Dorsia yes?",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 37200,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "We are totally booked.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 37202,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "I said we are totally booked.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 37204,
+        "character_id": 338,
+        "character": "MAITRE D'",
+        "movie_id": 20,
+        "movie": "american psycho",
+        "line_text": "There are no tables available tonight. The waiting list is also totally booked.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "BATEMAN"
+        }
+    },
+    {
+        "line_id": 572366,
+        "character_id": 8111,
+        "character": "MAITRE D'",
+        "movie_id": 550,
+        "movie": "the game",
+        "line_text": "Christine!  Mister Van Orton is a valued customer...",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "CHRISTINE"
+        }
+    },
+    {
+        "line_id": 572368,
+        "character_id": 8111,
+        "character": "MAITRE D'",
+        "movie_id": 550,
+        "movie": "the game",
+        "line_text": "You don't talk to me like that.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "CHRISTINE"
+        }
+    },
+    {
+        "line_id": 572370,
+        "character_id": 8111,
+        "character": "MAITRE D'",
+        "movie_id": 550,
+        "movie": "the game",
+        "line_text": "Clean out your locker.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "CHRISTINE"
+        }
+    },
+    {
+        "line_id": 572372,
+        "character_id": 8111,
+        "character": "MAITRE D'",
+        "movie_id": 550,
+        "movie": "the game",
+        "line_text": "I'll be right with you.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "CHRISTINE"
+        }
+    },
+    {
+        "line_id": 665987,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Yes sir name please?",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    },
+    {
+        "line_id": 665989,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Do you have a reservation?",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    },
+    {
+        "line_id": 665991,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "I'm sorry sir. We only seat by reservation.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    },
+    {
+        "line_id": 665993,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Oh no sir-ee. If yo don't have a reservation you can skip to ma-loo.",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    },
+    {
+        "line_id": 665995,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Now just one moment. There's no need for roughhousing. Have you ever tried a tip?",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    },
+    {
+        "line_id": 665997,
+        "character_id": 9021,
+        "character": "MAITRE D'",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Franz! Help! Lunatic!",
+        "conversation": {
+            "speaker": "MAITRE D'",
+            "listener": "MONSTER"
+        }
+    }
+]

@@ -1,0 +1,12 @@
+{
+    "line_id": 666223,
+    "character_id": 0,
+    "character": "BIANCA",
+    "movie_id": 0,
+    "movie": "10 things i hate about you",
+    "line_text": "testing",
+    "conversation": {
+        "speaker": "BIANCA",
+        "listener": "BRUCE"
+    }
+}

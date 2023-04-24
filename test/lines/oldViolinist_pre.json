@@ -1,0 +1,38 @@
+[
+    {
+        "line_id": 665469,
+        "character_id": 9024,
+        "character": "OLD VIOLINIST",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Zis is an old Transylvanian Lullaby.",
+        "conversation": {
+            "speaker": "OLD VIOLINIST",
+            "listener": "FREDDY"
+        }
+    },
+    {
+        "line_id": 665472,
+        "character_id": 9024,
+        "character": "OLD VIOLINIST",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "It's an honor for me sir. You play the violin?",
+        "conversation": {
+            "speaker": "OLD VIOLINIST",
+            "listener": "FREDDY"
+        }
+    },
+    {
+        "line_id": 665475,
+        "character_id": 9024,
+        "character": "OLD VIOLINIST",
+        "movie_id": 615,
+        "movie": "young frankenstein",
+        "line_text": "Ja ja.",
+        "conversation": {
+            "speaker": "OLD VIOLINIST",
+            "listener": "FREDDY"
+        }
+    }
+]

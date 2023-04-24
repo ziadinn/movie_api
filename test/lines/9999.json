@@ -1,0 +1,12 @@
+{
+    "line_id": 9999,
+    "character_id": 3522,
+    "character": "COFFEY",
+    "movie_id": 232,
+    "movie": "the abyss",
+    "line_text": "Look we've all made chamber runs to this depth. We're checked out.",
+    "conversation": {
+        "speaker": "COFFEY",
+        "listener": "LINDSEY"
+    }
+}

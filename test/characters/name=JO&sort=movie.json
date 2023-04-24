@@ -1,0 +1,302 @@
+[
+    {
+        "character_id": 4,
+        "character": "JOEY",
+        "movie": "10 things i hate about you",
+        "number_of_lines": 37
+    },
+    {
+        "character_id": 168,
+        "character": "MAJOR CALDWELL",
+        "movie": "air force one",
+        "number_of_lines": 7
+    },
+    {
+        "character_id": 202,
+        "character": "JOEY",
+        "movie": "airplane!",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 251,
+        "character": "JOSEPH",
+        "movie": "amadeus",
+        "number_of_lines": 64
+    },
+    {
+        "character_id": 3951,
+        "character": "JOKER",
+        "movie": "batman",
+        "number_of_lines": 24
+    },
+    {
+        "character_id": 494,
+        "character": "JOSEPHINE",
+        "movie": "big fish",
+        "number_of_lines": 35
+    },
+    {
+        "character_id": 4341,
+        "character": "DETECTIVE JOHNSON",
+        "movie": "casino",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 4355,
+        "character": "JOE",
+        "movie": "casino",
+        "number_of_lines": 3
+    },
+    {
+        "character_id": 4532,
+        "character": "JOHN",
+        "movie": "clerks.",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 4593,
+        "character": "JONAS",
+        "movie": "conspiracy theory",
+        "number_of_lines": 42
+    },
+    {
+        "character_id": 4605,
+        "character": "JOSS",
+        "movie": "contact",
+        "number_of_lines": 68
+    },
+    {
+        "character_id": 4841,
+        "character": "BIG JOHNSON",
+        "movie": "die hard",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 7926,
+        "character": "MAJOR KONG",
+        "movie": "dr. strangelove or: how i learned to stop worrying and love the bomb",
+        "number_of_lines": 106
+    },
+    {
+        "character_id": 7927,
+        "character": "MAJOR MANDRAKE",
+        "movie": "dr. strangelove or: how i learned to stop worrying and love the bomb",
+        "number_of_lines": 95
+    },
+    {
+        "character_id": 4980,
+        "character": "JO",
+        "movie": "election",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 861,
+        "character": "JOEL",
+        "movie": "eternal sunshine of the spotless mind",
+        "number_of_lines": 283
+    },
+    {
+        "character_id": 893,
+        "character": "JOHNNY",
+        "movie": "fantastic four",
+        "number_of_lines": 55
+    },
+    {
+        "character_id": 5279,
+        "character": "JORGE",
+        "movie": "final destination 2",
+        "number_of_lines": 6
+    },
+    {
+        "character_id": 5397,
+        "character": "JOHN",
+        "movie": "frequency",
+        "number_of_lines": 178
+    },
+    {
+        "character_id": 5398,
+        "character": "JOHNNY",
+        "movie": "frequency",
+        "number_of_lines": 8
+    },
+    {
+        "character_id": 5482,
+        "character": "DIRECTOR JOSEF",
+        "movie": "gattaca",
+        "number_of_lines": 8
+    },
+    {
+        "character_id": 1097,
+        "character": "JOE",
+        "movie": "ghost world",
+        "number_of_lines": 16
+    },
+    {
+        "character_id": 1098,
+        "character": "JOHN",
+        "movie": "ghost world",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 1099,
+        "character": "JOHN ELLIS",
+        "movie": "ghost world",
+        "number_of_lines": 7
+    },
+    {
+        "character_id": 1100,
+        "character": "JOSH",
+        "movie": "ghost world",
+        "number_of_lines": 37
+    },
+    {
+        "character_id": 1032,
+        "character": "MAJOR HICKS",
+        "movie": "godzilla",
+        "number_of_lines": 30
+    },
+    {
+        "character_id": 1342,
+        "character": "MAJOR",
+        "movie": "highlander",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 1354,
+        "character": "UNCLE JOE",
+        "movie": "highlander",
+        "number_of_lines": 6
+    },
+    {
+        "character_id": 5880,
+        "character": "JORGENSON",
+        "movie": "hostage",
+        "number_of_lines": 3
+    },
+    {
+        "character_id": 5889,
+        "character": "MR. JONES",
+        "movie": "hostage",
+        "number_of_lines": 11
+    },
+    {
+        "character_id": 5905,
+        "character": "JOCK",
+        "movie": "hotel rwanda",
+        "number_of_lines": 16
+    },
+    {
+        "character_id": 1515,
+        "character": "JOE",
+        "movie": "intolerable cruelty",
+        "number_of_lines": 7
+    },
+    {
+        "character_id": 6048,
+        "character": "JOE",
+        "movie": "it's a wonderful life",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 6049,
+        "character": "JOSEPH'S VOICE",
+        "movie": "it's a wonderful life",
+        "number_of_lines": 20
+    },
+    {
+        "character_id": 1569,
+        "character": "JOHNSON",
+        "movie": "jfk",
+        "number_of_lines": 6
+    },
+    {
+        "character_id": 1843,
+        "character": "JOHN",
+        "movie": "little nicky",
+        "number_of_lines": 27
+    },
+    {
+        "character_id": 6310,
+        "character": "JOHN",
+        "movie": "lock stock and two smoking barrels",
+        "number_of_lines": 5
+    },
+    {
+        "character_id": 6311,
+        "character": "JOHN O'DRISCOLL",
+        "movie": "lock stock and two smoking barrels",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 6316,
+        "character": "SAMOAN JO",
+        "movie": "lock stock and two smoking barrels",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 1879,
+        "character": "JOHNNY MACK",
+        "movie": "lost highway",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 6381,
+        "character": "JOHN",
+        "movie": "lost in translation",
+        "number_of_lines": 31
+    },
+    {
+        "character_id": 1988,
+        "character": "JORDAN",
+        "movie": "man on fire",
+        "number_of_lines": 13
+    },
+    {
+        "character_id": 1989,
+        "character": "JORGE",
+        "movie": "man on fire",
+        "number_of_lines": 15
+    },
+    {
+        "character_id": 6551,
+        "character": "JOE",
+        "movie": "meet joe black",
+        "number_of_lines": 253
+    },
+    {
+        "character_id": 6577,
+        "character": "JOSÉ YERO",
+        "movie": "miami vice",
+        "number_of_lines": 27
+    },
+    {
+        "character_id": 6583,
+        "character": "JOE",
+        "movie": "midnight cowboy",
+        "number_of_lines": 118
+    },
+    {
+        "character_id": 6728,
+        "character": "JOE",
+        "movie": "mulholland dr.",
+        "number_of_lines": 14
+    },
+    {
+        "character_id": 6959,
+        "character": "JOCKO",
+        "movie": "on the waterfront",
+        "number_of_lines": 6
+    },
+    {
+        "character_id": 6960,
+        "character": "JOEY",
+        "movie": "on the waterfront",
+        "number_of_lines": 4
+    },
+    {
+        "character_id": 6961,
+        "character": "JOHNNY",
+        "movie": "on the waterfront",
+        "number_of_lines": 45
+    }
+]

@@ -1,0 +1,352 @@
+[
+    {
+        "movie_id": 42,
+        "movie_title": "casablanca",
+        "year": "1942",
+        "imdb_rating": 8.8,
+        "imdb_votes": 170874
+    },
+    {
+        "movie_id": 298,
+        "movie_title": "citizen kane",
+        "year": "1941",
+        "imdb_rating": 8.6,
+        "imdb_votes": 140517
+    },
+    {
+        "movie_id": 536,
+        "movie_title": "dr. strangelove or: how i learned to stop worrying and love the bomb",
+        "year": "1964",
+        "imdb_rating": 8.6,
+        "imdb_votes": 158529
+    },
+    {
+        "movie_id": 301,
+        "movie_title": "a clockwork orange",
+        "year": "1971",
+        "imdb_rating": 8.5,
+        "imdb_votes": 197372
+    },
+    {
+        "movie_id": 502,
+        "movie_title": "saving private ryan",
+        "year": "1998",
+        "imdb_rating": 8.5,
+        "imdb_votes": 275666
+    },
+    {
+        "movie_id": 558,
+        "movie_title": "the third man",
+        "year": "1949",
+        "imdb_rating": 8.5,
+        "imdb_votes": 51872
+    },
+    {
+        "movie_id": 566,
+        "movie_title": "the pianist",
+        "year": "2002",
+        "imdb_rating": 8.5,
+        "imdb_votes": 138080
+    },
+    {
+        "movie_id": 53,
+        "movie_title": "the elephant man",
+        "year": "1980",
+        "imdb_rating": 8.4,
+        "imdb_votes": 59625
+    },
+    {
+        "movie_id": 445,
+        "movie_title": "monty python and the holy grail",
+        "year": "1975",
+        "imdb_rating": 8.4,
+        "imdb_votes": 157683
+    },
+    {
+        "movie_id": 98,
+        "movie_title": "indiana jones and the last crusade",
+        "year": "1989",
+        "imdb_rating": 8.3,
+        "imdb_votes": 174947
+    },
+    {
+        "movie_id": 243,
+        "movie_title": "annie hall",
+        "year": "1977",
+        "imdb_rating": 8.3,
+        "imdb_votes": 66781
+    },
+    {
+        "movie_id": 305,
+        "movie_title": "cool hand luke",
+        "year": "1967",
+        "imdb_rating": 8.3,
+        "imdb_votes": 46514
+    },
+    {
+        "movie_id": 390,
+        "movie_title": "hotel rwanda",
+        "year": "2004",
+        "imdb_rating": 8.3,
+        "imdb_votes": 94404
+    },
+    {
+        "movie_id": 364,
+        "movie_title": "gandhi",
+        "year": "1982",
+        "imdb_rating": 8.2,
+        "imdb_votes": 52160
+    },
+    {
+        "movie_id": 422,
+        "movie_title": "lock stock and two smoking barrels",
+        "year": "1998",
+        "imdb_rating": 8.2,
+        "imdb_votes": 129117
+    },
+    {
+        "movie_id": 448,
+        "movie_title": "mulholland dr.",
+        "year": "2001",
+        "imdb_rating": 8.0,
+        "imdb_votes": 105859
+    },
+    {
+        "movie_id": 555,
+        "movie_title": "the truman show",
+        "year": "1998",
+        "imdb_rating": 8.0,
+        "imdb_votes": 160825
+    },
+    {
+        "movie_id": 615,
+        "movie_title": "young frankenstein",
+        "year": "1974",
+        "imdb_rating": 8.0,
+        "imdb_votes": 57618
+    },
+    {
+        "movie_id": 425,
+        "movie_title": "lost in translation",
+        "year": "2003",
+        "imdb_rating": 7.9,
+        "imdb_votes": 132645
+    },
+    {
+        "movie_id": 586,
+        "movie_title": "true romance",
+        "year": "1993",
+        "imdb_rating": 7.9,
+        "imdb_votes": 74762
+    },
+    {
+        "movie_id": 13,
+        "movie_title": "airplane!",
+        "year": "1980",
+        "imdb_rating": 7.8,
+        "imdb_votes": 57692
+    },
+    {
+        "movie_id": 193,
+        "movie_title": "star trek: the wrath of khan",
+        "year": "1982",
+        "imdb_rating": 7.8,
+        "imdb_votes": 36503
+    },
+    {
+        "movie_id": 129,
+        "movie_title": "man on fire",
+        "year": "2004",
+        "imdb_rating": 7.7,
+        "imdb_votes": 76517
+    },
+    {
+        "movie_id": 553,
+        "movie_title": "the man who wasn't there",
+        "year": "2001",
+        "imdb_rating": 7.7,
+        "imdb_votes": 41452
+    },
+    {
+        "movie_id": 60,
+        "movie_title": "fear and loathing in las vegas",
+        "year": "1998",
+        "imdb_rating": 7.6,
+        "imdb_votes": 82748
+    },
+    {
+        "movie_id": 262,
+        "movie_title": "batman",
+        "year": "1989",
+        "imdb_rating": 7.6,
+        "imdb_votes": 112731
+    },
+    {
+        "movie_id": 99,
+        "movie_title": "indiana jones and the temple of doom",
+        "year": "1984",
+        "imdb_rating": 7.5,
+        "imdb_votes": 112054
+    },
+    {
+        "movie_id": 162,
+        "movie_title": "pleasantville",
+        "year": "1998",
+        "imdb_rating": 7.5,
+        "imdb_votes": 49669
+    },
+    {
+        "movie_id": 20,
+        "movie_title": "american psycho",
+        "year": "2000",
+        "imdb_rating": 7.4,
+        "imdb_votes": 101357
+    },
+    {
+        "movie_id": 189,
+        "movie_title": "spider-man",
+        "year": "2002",
+        "imdb_rating": 7.4,
+        "imdb_votes": 169898
+    },
+    {
+        "movie_id": 375,
+        "movie_title": "grosse pointe blank",
+        "year": "1997",
+        "imdb_rating": 7.4,
+        "imdb_votes": 41877
+    },
+    {
+        "movie_id": 432,
+        "movie_title": "man on the moon",
+        "year": "1999",
+        "imdb_rating": 7.4,
+        "imdb_votes": 49915
+    },
+    {
+        "movie_id": 574,
+        "movie_title": "titanic",
+        "year": "1997",
+        "imdb_rating": 7.4,
+        "imdb_votes": 244771
+    },
+    {
+        "movie_id": 544,
+        "movie_title": "superman",
+        "year": "1978",
+        "imdb_rating": 7.3,
+        "imdb_votes": 51172
+    },
+    {
+        "movie_id": 89,
+        "movie_title": "highlander",
+        "year": "1986",
+        "imdb_rating": 7.2,
+        "imdb_votes": 41243
+    },
+    {
+        "movie_id": 22,
+        "movie_title": "austin powers: international man of mystery",
+        "year": "1997",
+        "imdb_rating": 7.1,
+        "imdb_votes": 75240
+    },
+    {
+        "movie_id": 155,
+        "movie_title": "panic room",
+        "year": "2002",
+        "imdb_rating": 6.9,
+        "imdb_votes": 69824
+    },
+    {
+        "movie_id": 240,
+        "movie_title": "american pie",
+        "year": "1999",
+        "imdb_rating": 6.9,
+        "imdb_votes": 107961
+    },
+    {
+        "movie_id": 259,
+        "movie_title": "batman returns",
+        "year": "1992",
+        "imdb_rating": 6.9,
+        "imdb_votes": 79770
+    },
+    {
+        "movie_id": 245,
+        "movie_title": "antz",
+        "year": "1998",
+        "imdb_rating": 6.8,
+        "imdb_votes": 37825
+    },
+    {
+        "movie_id": 479,
+        "movie_title": "pretty woman",
+        "year": "1990",
+        "imdb_rating": 6.7,
+        "imdb_votes": 61642
+    },
+    {
+        "movie_id": 344,
+        "movie_title": "the family man",
+        "year": "2000",
+        "imdb_rating": 6.6,
+        "imdb_votes": 34509
+    },
+    {
+        "movie_id": 381,
+        "movie_title": "hannibal",
+        "year": "2001",
+        "imdb_rating": 6.4,
+        "imdb_votes": 75788
+    },
+    {
+        "movie_id": 321,
+        "movie_title": "demolition man",
+        "year": "1993",
+        "imdb_rating": 6.3,
+        "imdb_votes": 46318
+    },
+    {
+        "movie_id": 602,
+        "movie_title": "what women want",
+        "year": "2000",
+        "imdb_rating": 6.3,
+        "imdb_votes": 55269
+    },
+    {
+        "movie_id": 300,
+        "movie_title": "cliffhanger",
+        "year": "1993",
+        "imdb_rating": 6.2,
+        "imdb_votes": 34880
+    },
+    {
+        "movie_id": 429,
+        "movie_title": "the man in the iron mask",
+        "year": "1998/I",
+        "imdb_rating": 6.1,
+        "imdb_votes": 36684
+    },
+    {
+        "movie_id": 58,
+        "movie_title": "fantastic four",
+        "year": "2005",
+        "imdb_rating": 5.7,
+        "imdb_votes": 72581
+    },
+    {
+        "movie_id": 473,
+        "movie_title": "planet of the apes",
+        "year": "2001",
+        "imdb_rating": 5.5,
+        "imdb_votes": 73596
+    },
+    {
+        "movie_id": 261,
+        "movie_title": "batman forever",
+        "year": "1995",
+        "imdb_rating": 5.4,
+        "imdb_votes": 77223
+    }
+]

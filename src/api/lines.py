@@ -51,23 +51,6 @@ def get_line(id: str):
         "conversation": getConversationData(conversation_id, char_id),
     }
 
-@router.get("/conversations/{id}", tags=["lines"])
-def get_convo(id: str):
-    id = int(id)
-    if id not in db.conversations:
-        raise HTTPException(status_code=404, detail="conversation not found.")
-    conversation = db.conversations.get(id)
-    return {
-        "conversation_id": int(id),
-        "character1_id": int(conversation.c1_id),
-        "character1": db.characters.get(conversation.c1_id).name,
-        "character2_id": int(conversation.c2_id),
-        "character2": db.characters.get(conversation.c2_id).name,
-        "movie_id": int(conversation.movie_id),
-        "movie": db.movies.get(conversation.movie_id).title,
-    }
-
-
 @router.get("/lines/", tags=["lines"])
 def list_lines(
     character: str = "",
@@ -107,4 +90,46 @@ def list_lines(
                 "line_text": line.line_text,
                 "conversation": getConversationData(conversation_id, char_id),
             })
+    return json[offset:offset+limit]
+
+@router.get("/conversations/{id}", tags=["lines"])
+def get_convo(id: str):
+    id = int(id)
+    if id not in db.conversations:
+        raise HTTPException(status_code=404, detail="conversation not found.")
+    conversation = db.conversations.get(id)
+    return {
+        "conversation_id": int(id),
+        "character1_id": int(conversation.c1_id),
+        "character1": db.characters.get(conversation.c1_id).name,
+        "character2_id": int(conversation.c2_id),
+        "character2": db.characters.get(conversation.c2_id).name,
+        "movie_id": int(conversation.movie_id),
+        "movie": db.movies.get(conversation.movie_id).title,
+    }
+
+@router.get("/conversations/", tags=["lines"])
+def list_conversations(
+    limit: int = 50,
+    offset: int = 0,
+):
+    """
+    This endpoint returns a list of conversations. For each conversation it returns:
+    * `conversation_id`: the internal id of the conversation. Can be used to query the
+        `/conversations/{conversation_id}` endpoint.
+    * `speaker`: The name of the character that speaks the line.
+    * `listener`: The name of the character that listens to the line.
+    * `movie`: The title of the movie.
+    """
+    json = []
+    for conversationId in db.conversations:
+        conversation = db.conversations.get(conversationId)
+        character = db.characters.get(conversation.c1_id)
+        otherChar = db.characters.get(conversation.c2_id)
+        json.append({
+            "conversation_id": int(conversationId),
+            "speaker": character.name,
+            "listener": otherChar.name,
+            "movie": db.movies.get(conversation.movie_id).title,
+        })
     return json[offset:offset+limit]

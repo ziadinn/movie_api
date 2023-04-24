@@ -1,0 +1,31 @@
+{
+    "movie_id": 428,
+    "title": "magnolia",
+    "top_characters": [
+        {
+            "character_id": 6434,
+            "character": "JIM KURRING",
+            "num_lines": 144
+        },
+        {
+            "character_id": 6420,
+            "character": "CLAUDIA",
+            "num_lines": 109
+        },
+        {
+            "character_id": 6435,
+            "character": "JIMMY",
+            "num_lines": 100
+        },
+        {
+            "character_id": 6443,
+            "character": "PHIL",
+            "num_lines": 85
+        },
+        {
+            "character_id": 6430,
+            "character": "FRANK",
+            "num_lines": 71
+        }
+    ]
+}

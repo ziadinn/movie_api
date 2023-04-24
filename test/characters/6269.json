@@ -1,0 +1,20 @@
+{
+    "character_id": 6269,
+    "character": "DR. LECTER",
+    "movie": "the silence of the lambs",
+    "gender": "M",
+    "top_conversations": [
+        {
+            "character_id": 6266,
+            "character": "CLARICE",
+            "gender": "F",
+            "number_of_lines_together": 182
+        },
+        {
+            "character_id": 6275,
+            "character": "SEN. MARTIN",
+            "gender": null,
+            "number_of_lines_together": 10
+        }
+    ]
+}

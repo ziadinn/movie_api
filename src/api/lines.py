@@ -131,5 +131,6 @@ def list_conversations(
             "speaker": character.name,
             "listener": otherChar.name,
             "movie": db.movies.get(conversation.movie_id).title,
+            "num_lines": conversation.num_lines,
         })
     return json[offset:offset+limit]

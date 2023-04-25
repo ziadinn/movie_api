@@ -1,302 +1,352 @@
 [
     {
-        "conversation_id": 0,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 0,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 1,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 1,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 2,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 2,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 3,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 3,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 4,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 4,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 5,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 5,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 5
     },
     {
-        "conversation_id": 6,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 6,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 7,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 7,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 8,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 8,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 9,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 9,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 10,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 10,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 11,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 11,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 12,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 12,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 13,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 13,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 14,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 14,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 15,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 15,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 16,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 16,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 17,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 17,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 18,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 18,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 19,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 19,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 20,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 20,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 21,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 21,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 22,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 22,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 23,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 23,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 24,
-        "speaker": "BIANCA",
-        "listener": "CAMERON",
-        "movie": "10 things i hate about you"
+      "conversation_id": 24,
+      "speaker": "BIANCA",
+      "listener": "CAMERON",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 25,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 25,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 26,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 26,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 27,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 27,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 28,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 28,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 29,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 29,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 30,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 30,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 31,
-        "speaker": "BIANCA",
-        "listener": "CHASTITY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 31,
+      "speaker": "BIANCA",
+      "listener": "CHASTITY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 32,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 32,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 33,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 33,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 34,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 34,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 35,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 35,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 36,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 36,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 37,
-        "speaker": "BIANCA",
-        "listener": "JOEY",
-        "movie": "10 things i hate about you"
+      "conversation_id": 37,
+      "speaker": "BIANCA",
+      "listener": "JOEY",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 38,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 38,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 39,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 39,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 40,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 40,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 5
     },
     {
-        "conversation_id": 41,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 41,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 42,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 42,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 43,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 43,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     },
     {
-        "conversation_id": 44,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 44,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 45,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 45,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 46,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 46,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 2
     },
     {
-        "conversation_id": 47,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 47,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 4
     },
     {
-        "conversation_id": 48,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 48,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 8
     },
     {
-        "conversation_id": 49,
-        "speaker": "BIANCA",
-        "listener": "KAT",
-        "movie": "10 things i hate about you"
+      "conversation_id": 49,
+      "speaker": "BIANCA",
+      "listener": "KAT",
+      "movie": "10 things i hate about you",
+      "num_lines": 3
     }
-]
+  ]

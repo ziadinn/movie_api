@@ -51,10 +51,9 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
     request body.
 
     The endpoint returns the id of the resulting conversation that was created.
-    """
+    
 
-    # TODO: Remove the following two lines. This is just a placeholder to show
-    # how you could implement persistent storage.
+    """
 
     verifyConversation(movie_id, conversation)
     character_ids = [conversation.character_1_id, conversation.character_2_id]
@@ -87,6 +86,13 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
     )
     db.logs.append({"post_call_time": datetime.now(), "movie_id_added_to": movie_id})
     db.upload_new_log()
-    db.upload_new_lines()
+
+    # These two functions are called everytime a POST request is done
+    # These take a while to upload the information to Supabase
+    # Since it takes a while to upload
+    # We might not get the newest line_id and conversation_id for POST requests called in succession
+    # This might cause 2 quickly called POST requests to have the same line_id or conversation_id
+    db.upload_new_lines()  
     db.upload_new_convos()
+    
     return {"conversation_id": current_conversation_id}

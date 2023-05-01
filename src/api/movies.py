@@ -2,9 +2,24 @@ from fastapi import APIRouter, HTTPException
 from enum import Enum
 from src import database as db
 from fastapi.params import Query
+import sqlalchemy
+import dotenv
+import os
 
 router = APIRouter()
 
+def database_connection_url():
+    dotenv.load_dotenv()
+    DB_USER: str = os.environ.get("DB_USER")
+    DB_PASSWD = os.environ.get("DB_PASSWD")
+    DB_SERVER: str = os.environ.get("DB_SERVER")
+    DB_PORT: str = os.environ.get("DB_PORT")
+    DB_NAME: str = os.environ.get("DB_NAME")
+    print('>>>: ' + f"postgresql://{DB_USER}:{DB_PASSWD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}")
+    return f"postgresql://{DB_USER}:{DB_PASSWD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
+
+engine = sqlalchemy.create_engine(database_connection_url())
+conn = engine.connect()
 
 @router.get("/movies/{movie_id}", tags=["movies"])
 def get_movie(movie_id: int):
@@ -22,24 +37,52 @@ def get_movie(movie_id: int):
     * `num_lines`: The number of lines the character has in the movie.
 
     """
-
-    movie = db.movies.get(movie_id)
-    if movie:
-        top_chars = [
-            {"character_id": c.id, "character": c.name, "num_lines": c.num_lines}
-            for c in db.characters.values()
-            if c.movie_id == movie_id
+    result = conn.execute(
+        sqlalchemy.text("SELECT * FROM movies WHERE movie_id = :movie_id"),
+        [{"movie_id": movie_id}]
+    )
+    if result.rowcount == 0:
+        raise HTTPException(status_code=404, detail="movie not found.")
+    
+    movie = result.fetchone()
+    conversations = conn.execute(
+        sqlalchemy.text('''
+            SELECT character_id, COUNT(*) AS line_count 
+            FROM lines
+            WHERE movie_id = :movie_id
+            GROUP BY character_id
+            ORDER BY line_count DESC
+            LIMIT 5
+        '''),
+        [{"movie_id": movie_id}]
+    )
+    top_characters = []
+    for row in conversations:
+        res_char = conn.execute(
+            sqlalchemy.text('''
+                SELECT * FROM characters
+                WHERE character_id = :character_id
+            '''),
+            [{"character_id": row[0]}]
+        )
+        character = res_char.fetchone()
+        top_characters.append({
+            "character_id": character[0],
+            "character": character[1],
+            "num_lines": row[1]
+        })
+    
+    return {
+        "movie_id": movie[0],
+        "title": movie[1],
+        "top_characters": [
+            {
+                "character_id": c["character_id"],
+                "character": c["character"],
+                "num_lines": c["num_lines"]
+            } for c in top_characters
         ]
-        top_chars.sort(key=lambda c: c["num_lines"], reverse=True)
-
-        result = {
-            "movie_id": movie_id,
-            "title": movie.title,
-            "top_characters": top_chars[0:5],
-        }
-        return result
-
-    raise HTTPException(status_code=404, detail="movie not found.")
+    }
 
 
 class movie_sort_options(str, Enum):
@@ -78,33 +121,33 @@ def list_movies(
     maximum number of results to return. The `offset` query parameter specifies the
     number of results to skip before returning results.
     """
-    if name:
-
-        def filter_fn(m):
-            return m.title and name.lower() in m.title
-
-    else:
-
-        def filter_fn(_):
-            return True
-
-    items = list(filter(filter_fn, db.movies.values()))
+    col_name_sort = ""
     if sort == movie_sort_options.movie_title:
-        items.sort(key=lambda m: m.title)
+        col_name_sort = "title"
     elif sort == movie_sort_options.year:
-        items.sort(key=lambda m: m.year)
+        col_name_sort = "year"
     elif sort == movie_sort_options.rating:
-        items.sort(key=lambda m: m.imdb_rating, reverse=True)
+        col_name_sort = "imdb_rating"
 
-    json = (
-        {
-            "movie_id": m.id,
-            "movie_title": m.title,
-            "year": m.year,
-            "imdb_rating": m.imdb_rating,
-            "imdb_votes": m.imdb_votes,
-        }
-        for m in items[offset : offset + limit]
+    #  if sorting by rating, sort by rating descending
+    # if sorting by title or year, sort ascending
+    result = conn.execute(
+        sqlalchemy.text(f'''
+            SELECT * FROM movies
+            WHERE title LIKE :name
+            ORDER BY {col_name_sort} {"DESC" if col_name_sort == "imdb_rating" else "ASC"}
+            LIMIT :limit
+            OFFSET :offset
+        '''),
+        [{"name": f"%{name}%", "limit": limit, "offset": offset}]
     )
-
-    return json
+    movies = []
+    for row in result:
+        movies.append({
+            "movie_id": row[0],
+            "movie_title": row[1],
+            "year": str(row[2]),
+            "imdb_rating": row[3],
+            "imdb_votes": row[4]
+        })
+    return movies

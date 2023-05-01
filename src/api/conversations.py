@@ -4,7 +4,23 @@ from pydantic import BaseModel
 from typing import List
 from datetime import datetime
 from src.datatypes import Conversation, Line
+import os
+from supabase import Client, create_client
+import dotenv
 
+# DO NOT CHANGE THIS TO BE HARDCODED. ONLY PULL FROM ENVIRONMENT VARIABLES.
+dotenv.load_dotenv()
+supabase_api_key = os.environ.get("SUPABASE_API_KEY")
+supabase_url = os.environ.get("SUPABASE_URL")
+
+if supabase_api_key is None or supabase_url is None:
+    raise Exception(
+        "You must set the SUPABASE_API_KEY and SUPABASE_URL environment variables."
+    )
+
+supabase: Client = create_client(supabase_url, supabase_api_key)
+
+sess = supabase.auth.get_session()
 
 # FastAPI is inferring what the request body should look like
 # based on the following two classes.
@@ -54,12 +70,11 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
     
 
     """
-
     verifyConversation(movie_id, conversation)
     character_ids = [conversation.character_1_id, conversation.character_2_id]
     lines = conversation.lines
-    current_conversation_id = max(db.conversations.keys()) + 1
-    current_line_id = max(db.lines.keys()) + 1
+    current_conversation_id = supabase.table("conversation").select("conversation_id").order("conversation_id", desc=True).limit(1).execute().data[0]['conversation_id'] + 1
+    current_line_id = supabase.table("lines").select("line_id").order("line_id", desc=True).limit(1).execute().data[0]['line_id'] + 1
 
     validLines = []
     for i, line in enumerate(lines):
@@ -74,25 +89,20 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
             line.line_text,
         ))
         current_line_id += 1
-
     for validLine in validLines:
-        db.lines[validLine.id] = validLine
-    db.conversations[current_conversation_id] = Conversation(
-        int(current_conversation_id),
-        int(conversation.character_1_id),
-        int(conversation.character_2_id),
-        int(movie_id),
-        len(validLines),
-    )
-    db.logs.append({"post_call_time": datetime.now(), "movie_id_added_to": movie_id})
-    db.upload_new_log()
+        supabase.table("lines").insert({
+            "line_id": validLine.id,
+            "character_id": validLine.c_id,
+            "movie_id": validLine.movie_id,
+            "conversation_id": validLine.conv_id,
+            "line_sort": validLine.line_sort,
+            "line_text": validLine.line_text,
+        }).execute()
+    supabase.table("conversation").insert({
+        "conversation_id": current_conversation_id,
+        "character1_id": conversation.character_1_id,
+        "character2_id": conversation.character_2_id,
+        "movie_id": movie_id,
+    }).execute()
 
-    # These two functions are called everytime a POST request is done
-    # These take a while to upload the information to Supabase
-    # Since it takes a while to upload
-    # We might not get the newest line_id and conversation_id for POST requests called in succession
-    # This might cause 2 quickly called POST requests to have the same line_id or conversation_id
-    db.upload_new_lines()  
-    db.upload_new_convos()
-    
     return {"conversation_id": current_conversation_id}

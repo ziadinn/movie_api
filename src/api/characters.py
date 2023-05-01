@@ -4,13 +4,30 @@ from collections import Counter
 
 from fastapi.params import Query
 from src import database as db
+import os
+from supabase import Client, create_client
+import dotenv
+
+# DO NOT CHANGE THIS TO BE HARDCODED. ONLY PULL FROM ENVIRONMENT VARIABLES.
+dotenv.load_dotenv()
+supabase_api_key = os.environ.get("SUPABASE_API_KEY")
+supabase_url = os.environ.get("SUPABASE_URL")
+
+if supabase_api_key is None or supabase_url is None:
+    raise Exception(
+        "You must set the SUPABASE_API_KEY and SUPABASE_URL environment variables."
+    )
+
+supabase: Client = create_client(supabase_url, supabase_api_key)
+
+sess = supabase.auth.get_session()
 
 router = APIRouter()
 
 
 def get_top_conv_characters(character):
-    c_id = character.id
-    movie_id = character.movie_id
+    c_id = character["character_id"]
+    movie_id = character['movie_id']
     all_convs = filter(
         lambda conv: conv.movie_id == movie_id
         and (conv.c1_id == c_id or conv.c2_id == c_id),
@@ -46,16 +63,15 @@ def get_character(id: int):
     * `number_of_lines_together`: The number of lines the character has with the
       originally queried character.
     """
-
-    character = db.characters.get(id)
-
-    if character:
-        movie = db.movies.get(character.movie_id)
-        result = {
-            "character_id": character.id,
-            "character": character.name,
-            "movie": movie and movie.title,
-            "gender": character.gender,
+    res_chars = supabase.table('characters').select('*').eq('character_id', id).execute()
+    if res_chars.data:
+        character = res_chars.data[0]
+        movie = supabase.table('movies').select('*').eq('movie_id', character['movie_id']).execute().data[0]
+        return {
+            "character_id": character['character_id'],
+            "character": character['name'],
+            "movie": movie['title'],
+            "gender": character['gender'],
             "top_conversations": (
                 {
                     "character_id": other_id,
@@ -66,10 +82,8 @@ def get_character(id: int):
                 for other_id, lines in get_top_conv_characters(character)
             ),
         }
-        return result
-
-    raise HTTPException(status_code=404, detail="character not found.")
-
+    else:
+        raise HTTPException(status_code=404, detail="character not found.")
 
 class character_sort_options(str, Enum):
     character = "character"

@@ -28,7 +28,7 @@ def get_movie(movie_id: int):
     * `movie_id`: the internal id of the movie.
     * `title`: The title of the movie.
     * `top_characters`: A list of characters that are in the movie. The characters
-      are ordered by the number of lines they have in the movie. The top five
+    are ordered by the number of lines they have in the movie. The top five
       characters are listed.
 
     Each character is represented by a dictionary with the following keys:

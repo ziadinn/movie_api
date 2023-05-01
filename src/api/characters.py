@@ -7,6 +7,7 @@ from src import database as db
 import os
 from supabase import Client, create_client
 import dotenv
+import sqlalchemy
 
 # DO NOT CHANGE THIS TO BE HARDCODED. ONLY PULL FROM ENVIRONMENT VARIABLES.
 dotenv.load_dotenv()
@@ -24,22 +25,41 @@ sess = supabase.auth.get_session()
 
 router = APIRouter()
 
+def database_connection_url():
+    dotenv.load_dotenv()
+    DB_USER: str = os.environ.get("DB_USER")
+    DB_PASSWD = os.environ.get("DB_PASSWD")
+    DB_SERVER: str = os.environ.get("DB_SERVER")
+    DB_PORT: str = os.environ.get("DB_PORT")
+    DB_NAME: str = os.environ.get("DB_NAME")
+    print('>>>: ' + f"postgresql://{DB_USER}:{DB_PASSWD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}")
+    return f"postgresql://{DB_USER}:{DB_PASSWD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
+
+engine = sqlalchemy.create_engine(database_connection_url())
+conn = engine.connect()
 
 def get_top_conv_characters(character):
     c_id = character["character_id"]
     movie_id = character['movie_id']
-    all_convs = filter(
-        lambda conv: conv.movie_id == movie_id
-        and (conv.c1_id == c_id or conv.c2_id == c_id),
-        db.conversations.values(),
+    conversations_results = conn.execute(
+        sqlalchemy.text("SELECT * FROM conversation WHERE (character1_id = :c_id OR character2_id = :c_id) AND movie_id = :movie_id"),
+        [{"c_id": c_id, "movie_id": str(movie_id)}]
     )
-    line_counts = Counter()
-
-    for conv in all_convs:
-        other_id = conv.c2_id if conv.c1_id == c_id else conv.c1_id
-        line_counts[other_id] += conv.num_lines
-
-    return line_counts.most_common()
+    # Headers = conversation_id,character1_id,character2_id,movie_id
+    convos_with_char = {}
+    for conv in conversations_results:
+        convos_with_char[conv[0]] = conv[1] if conv[1] != c_id else conv[2]
+    lines_results = conn.execute(
+        sqlalchemy.text("SELECT * FROM lines WHERE movie_id = :movie_id"),
+        [{"movie_id": movie_id}]
+    )
+    counter = Counter()
+    # headers: line_id,character_id,movie_id,conversation_id,line_sort,line_text
+    for line in lines_results:
+        if line[3] in convos_with_char:
+            otherChar = line[1] if line[1] != c_id else convos_with_char[line[3]]
+            counter[otherChar] += 1
+    return counter.most_common()
 
 
 @router.get("/characters/{id}", tags=["characters"])
@@ -67,20 +87,25 @@ def get_character(id: int):
     if res_chars.data:
         character = res_chars.data[0]
         movie = supabase.table('movies').select('*').eq('movie_id', character['movie_id']).execute().data[0]
+        top_convos = []
+        for other_id, lines in get_top_conv_characters(character):
+            res_char = conn.execute(
+                sqlalchemy.text("SELECT * FROM characters WHERE character_id = :other_id"),
+                [{"other_id": other_id}]
+            )
+            other_char = res_char.first()
+            top_convos.append({
+                "charcter_id": other_id,
+                "character": other_char[1],
+                "gender": other_char[3],
+                "number_of_lines_together": lines,
+            })
         return {
             "character_id": character['character_id'],
             "character": character['name'],
             "movie": movie['title'],
             "gender": character['gender'],
-            "top_conversations": (
-                {
-                    "character_id": other_id,
-                    "character": db.characters[other_id].name,
-                    "gender": db.characters[other_id].gender,
-                    "number_of_lines_together": lines,
-                }
-                for other_id, lines in get_top_conv_characters(character)
-            ),
+            "top_conversations": top_convos,
         }
     else:
         raise HTTPException(status_code=404, detail="character not found.")
@@ -119,36 +144,51 @@ def list_characters(
     maximum number of results to return. The `offset` query parameter specifies the
     number of results to skip before returning results.
     """
-
-    if name:
-
-        def filter_fn(c):
-            return c.name and name.upper() in c.name
-
-    else:
-
-        def filter_fn(_):
-            return True
-
-    items = list(filter(filter_fn, db.characters.values()))
-
-    def none_last(x, reverse=False):
-        return (x is None) ^ reverse, x
-
+    col_name_sort = ""
     if sort == character_sort_options.character:
-        items.sort(key=lambda c: none_last(c.name))
+        col_name_sort = "name"
     elif sort == character_sort_options.movie:
-        items.sort(key=lambda c: none_last(db.movies[c.movie_id].title))
+        col_name_sort = "title"
     elif sort == character_sort_options.number_of_lines:
-        items.sort(key=lambda c: none_last(c.num_lines, True), reverse=True)
+        col_name_sort = "number_of_lines"
 
-    json = (
-        {
-            "character_id": c.id,
-            "character": c.name,
-            "movie": db.movies[c.movie_id].title,
-            "number_of_lines": c.num_lines,
-        }
-        for c in items[offset : offset + limit]
+    #  if sorting by number of lines, sort by number of lines descending
+    # if sorting by character or movie, sort ascending
+    # result = conn.execute(
+    #     sqlalchemy.text(f'''
+    #         SELECT * FROM characters
+    #         INNER JOIN movies ON characters.movie_id = movies.movie_id
+    #         WHERE name LIKE :name
+    #         ORDER BY {col_name_sort} {"DESC" if col_name_sort == "number_of_lines" else "ASC"}
+    #         LIMIT :limit
+    #         OFFSET :offset
+    #     '''),
+    #     [{"name": f"%{name}%", "limit": limit, "offset": offset}]
+    # )
+    result = conn.execute(
+        sqlalchemy.text(f'''
+            SELECT * FROM characters
+            WHERE name LIKE :name
+            ORDER BY {col_name_sort} {"DESC" if col_name_sort == "number_of_lines" else "ASC"}
+            LIMIT :limit
+            OFFSET :offset
+        '''),
+        [{"name": f"%{name}%", "limit": limit, "offset": offset}]
     )
-    return json
+    characters = []
+    for row in result:
+        movie = conn.execute(
+            sqlalchemy.text("SELECT * FROM movies WHERE movie_id = :movie_id"),
+            [{"movie_id": row[2]}]
+        ).first()
+        num_lines = conn.execute(
+            sqlalchemy.text("SELECT COUNT(*) FROM lines WHERE character_id = :character_id"),
+            [{"character_id": row[0]}]
+        ).first()[0]
+        characters.append({
+            "character_id": row[0],
+            "character": row[1],
+            "movie": movie[1],
+            "number_of_lines": num_lines
+        })
+    return characters

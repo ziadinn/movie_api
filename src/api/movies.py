@@ -135,7 +135,7 @@ def list_movies(
         sqlalchemy.text(f'''
             SELECT * FROM movies
             WHERE title LIKE :name
-            ORDER BY {col_name_sort} {"DESC" if col_name_sort == "imdb_rating" else "ASC"}
+            ORDER BY {col_name_sort} {"DESC" if col_name_sort == "imdb_rating" else "ASC"}, movie_id ASC
             LIMIT :limit
             OFFSET :offset
         '''),

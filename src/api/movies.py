@@ -129,8 +129,6 @@ def list_movies(
     elif sort == movie_sort_options.rating:
         col_name_sort = "imdb_rating"
 
-    #  if sorting by rating, sort by rating descending
-    # if sorting by title or year, sort ascending
     result = conn.execute(
         sqlalchemy.text(f'''
             SELECT * FROM movies

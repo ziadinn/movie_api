@@ -78,21 +78,6 @@ def get_line(id: str):
     * `speaker`: The name of the character that speaks the line.
     * `listener`: The name of the character that listens to the line.
     """
-    # id = int(id)
-    # if id not in db.lines:
-    #     raise HTTPException(status_code=404, detail="line not found.")
-    # line = db.lines.get(id)
-    # conversation_id = line.conv_id
-    # char_id = line.c_id
-    # return {
-    #     "line_id": int(id),
-    #     "character_id": int(line.c_id),
-    #     "character": db.characters.get(line.c_id).name,
-    #     "movie_id": int(line.movie_id),
-    #     "movie": db.movies.get(line.movie_id).title,
-    #     "line_text": line.line_text,
-    #     "conversation": getConversationData(conversation_id, char_id),
-    # }
     result = conn.execute(
         sqlalchemy.text('''
             SELECT *
@@ -104,10 +89,7 @@ def get_line(id: str):
     if result.rowcount == 0:
         raise HTTPException(status_code=404, detail="line not found.")
     line = result.fetchone()
-    # line headers: line_id,character_id,movie_id,conversation_id,line_sort,line_text
-
     conversation_id = line[3]
-
     movie_id = line[2]
     movie_result = conn.execute(
         sqlalchemy.text('''
@@ -164,23 +146,6 @@ def list_lines(
     * `speaker`: The name of the character that speaks the line.
     * `listener`: The name of the character that listens to the line.
     """
-    # json = []
-    # for lineId in db.lines:
-    #     line = db.lines.get(lineId)
-    #     if (not character or
-    #         db.characters.get(line.c_id).name.lower() == character.lower()):
-    #         conversation_id = line.conv_id
-    #         char_id = line.c_id
-    #         json.append({
-    #             "line_id": int(lineId),
-    #             "character_id": int(char_id),
-    #             "character": db.characters.get(char_id).name,
-    #             "movie_id": int(line.movie_id),
-    #             "movie": db.movies.get(line.movie_id).title,
-    #             "line_text": line.line_text,
-    #             "conversation": getConversationData(conversation_id, char_id),
-    #         })
-    # return json[offset:offset+limit]
     result = conn.execute(
         sqlalchemy.text('''
             SELECT *
